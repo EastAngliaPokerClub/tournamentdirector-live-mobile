@@ -1,14 +1,14 @@
 {
-  "_comment": "Tournament Director Live — settings. Edit these values to customise the display.",
+  "_comment": "Tournament Director Live — settings.",
 
-  "currency": "kr",
+  "currency": "£",
 
-  "defaultLang": "sv",
+  "defaultLang": "en",
 
   "pollIntervalSeconds": 90,
 
   "warnThreshold": 120,
   "critThreshold": 30,
 
-  "availableLanguages": ["sv", "en"]
+  "availableLanguages": ["en"]
 }
