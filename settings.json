@@ -5,10 +5,10 @@
 
   "defaultLang": "en",
 
-  "pollIntervalSeconds": 90,
+  "pollIntervalSeconds": 1,
 
   "warnThreshold": 120,
   "critThreshold": 30,
 
-  "availableLanguages": ["en"]
+  "availableLanguages": "en",
 }
