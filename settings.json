@@ -5,7 +5,7 @@
 
   "defaultLang": "en",
 
-  "pollIntervalSeconds": 5,
+  "pollIntervalSeconds": 60,
 
   "warnThreshold": 120,
   "critThreshold": 30,
