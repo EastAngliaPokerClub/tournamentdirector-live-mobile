@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0d1117">
-<title>Turnering Live</title>
+<title>Tournament Live</title>
 <script defer src="https://umami.mcfrojd.com/script.js" data-website-id="1b25e41f-511e-4ff9-893a-eb17339023b0"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@
     max-width: 600px; margin: 0 auto;
   }
 
-  /* ── TURNERINGSTITEL ── */
+  /* ── TOURNAMENT TITLE ── */
   .tourney-title-block {
     margin-bottom: 10px;
   }
@@ -140,7 +140,7 @@
   .progress-track { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
   .progress-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--gold-dim), var(--gold)); transition: width 1s linear; }
 
-  /* ── NÄSTA BLINDS BAR ── */
+  /* ── NEXT BLINDS BAR ── */
   .next-blinds-bar {
     background: rgba(200,169,74,0.07);
     border: 1px solid rgba(200,169,74,0.18);
@@ -219,7 +219,7 @@
   .avg-bb { font-size: 0.82rem; color: var(--gold-dim); margin-top: 5px; letter-spacing: 0.08em; }
   .avg-sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 
-  /* ── NEDRE INFORAD ── */
+  /* ── BOTTOM INFO ROW ── */
   .money-info-bar {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -254,25 +254,7 @@
   }
 
 
-  /* ── SPRÅKVÄLJARE ── */
-  .lang-bar {
-    display: flex; justify-content: center; gap: 16px;
-    padding: 20px 0 8px;
-  }
-  .lang-btn {
-    background: none; border: 2px solid var(--felt-light);
-    border-radius: 4px; padding: 5px 14px;
-    cursor: pointer; font-family: 'DM Mono', monospace;
-    font-size: 0.75rem; letter-spacing: 0.2em;
-    color: var(--muted);
-    transition: all 0.2s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .lang-btn.active { color: var(--gold); border-color: var(--gold); }
-  .lang-btn:hover  { color: var(--cream); border-color: var(--muted); }
-
-
-  /* ── TURNERINGSTITEL ROW ── */
+  /* ── TOURNAMENT TITLE ROW ── */
   .tourney-title-row {
     display: flex; justify-content: space-between; align-items: flex-start;
   }
@@ -287,7 +269,7 @@
     color: var(--gold);
   }
 
-  /* ── HUSBIDRAG SUB ── */
+  /* ── HOUSE CONTRIBUTION SUB ── */
   .house-contrib-sub {
     font-size: 0.75rem; color: var(--muted);
     margin-top: 5px; letter-spacing: 0.05em;
@@ -312,14 +294,14 @@
 <div class="page">
 
   <header>
-    <div class="logo">♠ Turnering Live</div>
+    <div class="logo">♠ Tournament Live</div>
     <div class="status-pill">
       <div class="status-dot" id="statusDot"></div>
-      <span id="statusText">Väntar</span>
+      <span id="statusText">Waiting</span>
     </div>
   </header>
 
-  <!-- Turneringstitel -->
+  <!-- Tournament title -->
   <div class="tourney-title-block" id="tourneyTitleBlock" style="display:none">
     <div class="tourney-title-row">
       <div class="tourney-left">
@@ -327,21 +309,21 @@
         <div class="tourney-desc" id="tourneyDesc"></div>
       </div>
       <div class="tourney-right" id="gameTypeBlock" style="display:none">
-        <div class="tourney-game-lbl" id="lbl-nowPlaying">Nu spelas</div>
+        <div class="tourney-game-lbl" id="lbl-nowPlaying">Game</div>
         <div class="tourney-game-val" id="gameTypeName"></div>
       </div>
     </div>
   </div>
 
-  <!-- Klocka -->
+  <!-- Clock -->
   <div class="clock-card">
     <div>
-      <div class="level-label" id="lbl-currentLevel">Aktuell nivå</div>
+      <div class="level-label" id="lbl-currentLevel">Current level</div>
       <div class="level-name" id="levelName">—</div>
     </div>
     <div class="clock-wrap">
       <div class="clock-display" id="clockDisplay">--:--</div>
-      <div class="clock-status" id="clockStatus">tid kvar</div>
+      <div class="clock-status" id="clockStatus">time left</div>
     </div>
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
@@ -351,11 +333,11 @@
   <!-- Blinds -->
   <div class="blinds-row" id="blindsRow">
     <div class="blind-card">
-      <div class="blind-lbl" id="lbl-smallBlind">Liten blind</div>
+      <div class="blind-lbl" id="lbl-smallBlind">Small blind</div>
       <div class="blind-val" id="smallBlind">—</div>
     </div>
     <div class="blind-card">
-      <div class="blind-lbl" id="lbl-bigBlind">Stor blind</div>
+      <div class="blind-lbl" id="lbl-bigBlind">Big blind</div>
       <div class="blind-val" id="bigBlind">—</div>
     </div>
     <div class="blind-card" id="anteBlock">
@@ -364,20 +346,20 @@
     </div>
   </div>
 
-  <!-- Nästa blinds -->
+  <!-- Next blinds -->
   <div class="next-blinds-bar" id="nextBlindsTag" style="display:none">
-    <span id="nextLabel">Nästa:</span> <span id="nextLevelInfo">—</span>&nbsp;·&nbsp;<span id="nextBlinds">—</span>
+    <span id="nextLabel">Next:</span> <span id="nextLevelInfo">—</span>&nbsp;·&nbsp;<span id="nextBlinds">—</span>
   </div>
 
-  <!-- Statistik 2×2 -->
+  <!-- Stats 2×2 -->
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="stat-lbl" id="lbl-players">Spelare kvar</div>
+      <div class="stat-lbl" id="lbl-players">Players left</div>
       <div class="stat-val green" id="playersRemaining">—</div>
       <div class="stat-sub" id="playersSub"></div>
     </div>
     <div class="stat-card">
-      <div class="stat-lbl" id="lbl-prizePool">Prispott</div>
+      <div class="stat-lbl" id="lbl-prizePool">Prize pool</div>
       <div class="stat-val gold" id="prizePool">—</div>
       <div class="stat-sub" id="prizePoolSub"></div>
     </div>
@@ -387,48 +369,40 @@
       <div class="stat-sub" id="rebuysAddonsSub"></div>
     </div>
     <div class="stat-card" id="houseCard">
-      <div class="stat-lbl" id="lbl-house">Inköp</div>
+      <div class="stat-lbl" id="lbl-house">Buy-in</div>
       <div class="stat-val" id="buyInVal">—</div>
       <div class="house-contrib-sub" id="houseContribRow" style="display:none">
-        + <span id="houseContrib">—</span> <span id="lbl-houseRow">husbidrag</span>
+        + <span id="houseContrib">—</span> <span id="lbl-houseRow">house adds</span>
       </div>
     </div>
   </div>
 
-  <!-- Snittstack & Totalt -->
+  <!-- Avg stack & Total -->
   <div class="stack-grid">
     <div class="stack-card">
-      <div class="panel-ttl" id="lbl-avgStack">Snittstack</div>
+      <div class="panel-ttl" id="lbl-avgStack">Avg stack</div>
       <div class="avg-num" id="avgStack">—</div>
       <div class="avg-bb" id="stacksBB">— BB</div>
     </div>
     <div class="stack-card">
-      <div class="panel-ttl" id="lbl-totalChips">Marker i spel</div>
+      <div class="panel-ttl" id="lbl-totalChips">Chips in play</div>
       <div class="avg-num" id="totalChips">—</div>
-      <div class="avg-sub" id="tablesInfo">— bord</div>
+      <div class="avg-sub" id="tablesInfo">— tables</div>
     </div>
   </div>
 
 
-  <!-- Betalda platser & bust till pengar -->
+  <!-- Paid places & busts to money -->
   <div class="money-info-bar" id="moneyInfoBar" style="display:none">
     <div class="money-card itm">
       <div class="money-card-val" id="itmCount">—</div>
-      <div class="money-card-lbl" id="lbl-paidPlaces">betalda platser</div>
+      <div class="money-card-lbl" id="lbl-paidPlaces">paid places</div>
     </div>
     <div class="money-card busts">
       <div class="money-card-val" id="bustsCount">—</div>
-      <div class="money-card-lbl" id="bustsLbl">bust till $</div>
+      <div class="money-card-lbl" id="bustsLbl">busts to $</div>
     </div>
   </div>
-
-
-  <!-- Språkväljare -->
-  <div class="lang-bar">
-    <button class="lang-btn active" id="lang-sv" onclick="setLang('sv')">SV</button>
-    <button class="lang-btn" id="lang-en" onclick="setLang('en')">EN</button>
-  </div>
-
 
 </div><!-- /page -->
 
@@ -436,24 +410,10 @@
 
 <script>
 
-// Settings and LANG are loaded from settings.json + locales/*.json at startup
-let settings = { currency: 'kr', warnThreshold: 120, critThreshold: 30, pollIntervalSeconds: 90 };
+// Settings are loaded from settings.json + locales/en.json at startup
+let settings = { currency: '$', warnThreshold: 120, critThreshold: 30, pollIntervalSeconds: 90 };
 const LANG = {};
-
-let currentLang = 'sv';
-
-function setLang(lang) {
-  currentLang = lang;
-  try { localStorage.setItem('td_lang', lang); } catch(e) {}
-  // Update button states
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  const btn = document.getElementById('lang-' + lang);
-  if (btn) btn.classList.add('active');
-  // Update all static labels
-  applyStaticLabels();
-  // Re-render if we have data
-  if (lastRenderedData) render(lastRenderedData);
-}
+const currentLang = 'en';
 
 function applyStaticLabels() {
   const t = LANG[currentLang];
@@ -484,7 +444,7 @@ function applyStaticLabels() {
   const logo = document.querySelector('.logo');
   if (logo) logo.textContent = '♠ ' + t.logoTitle;
   document.title = t.logoTitle;
-  // "Nästa:" / "Next:" label
+  // "Next:" label
   const nextLblEl = document.getElementById('nextLabel');
   if (nextLblEl) nextLblEl.textContent = t.nextLbl;
 }
@@ -492,8 +452,8 @@ function applyStaticLabels() {
 function t(key) { return LANG[currentLang][key] || key; }
 
 
-function fmt(n) { return Number(n).toLocaleString('sv-SE'); }
-function fmtMoney(n) { return Number(n).toLocaleString('sv-SE') + '\u00a0' + settings.currency; }
+function fmt(n) { return Number(n).toLocaleString('en-US'); }
+function fmtMoney(n) { return settings.currency + '\u00a0' + Number(n).toLocaleString('en-US'); }
 function fmtTime(secs) {
   secs = Math.max(0, Math.round(secs));
   return String(Math.floor(secs/60)).padStart(2,'0') + ':' + String(secs%60).padStart(2,'0');
@@ -593,14 +553,14 @@ function render(rawData) {
   const levelDisplayName = d.roundName ||
     (d.onBreak ? t('break') : t('level') + ' ' + d.roundNumber);
   setText('levelName', levelDisplayName || '—', true);
-  // levelNumber element removed — shown in nästa-raden instead
-  // Nästa: visa "Paus" om NextIsBreak, annars räkna ut nästa spelrunda
+  // levelNumber element removed — shown in the next-level row instead
+  // Next: show "Break" if NextIsBreak, otherwise compute the next playing round
   let nextLvlLabel;
   if (d._raw && d._raw.NextIsBreak == 1) {
     nextLvlLabel = t('break');
   } else if (d._raw) {
-    // Under paus: RoundNum = nästa spelrunda (t.ex. 11 → "Nivå 11")
-    // Under spelrunda: RoundNum = aktuell runda, nästa = RoundNum + 1
+    // During a break: RoundNum = next playing round (e.g. 11 → "Level 11")
+    // During a playing round: RoundNum = current round, next = RoundNum + 1
     const nextRound = d._raw.IsBreak == 1
       ? Number(d._raw.RoundNum)
       : Number(d._raw.RoundNum) + 1;
@@ -610,7 +570,7 @@ function render(rawData) {
   }
   setText('nextLevelInfo', nextLvlLabel);
 
-  // Synka lokal klocka mot TD:s värde
+  // Sync local clock with the TD's value
   const tr = d.timeRemaining != null ? d.timeRemaining : 0;
   const ld = d.levelDuration || 900;
   lastSyncTime = Date.now();
@@ -671,7 +631,7 @@ function render(rawData) {
   const rebuysOpen = d._raw && d._raw.RebuysAllowed && !d._raw.RebuysOver;
   setText('rebuysAddonsSub', totalReentries ? totalReentries + ' ' + t('total') + (rebuysOpen ? ' · ' + t('open') : '') : (rebuysOpen ? t('rebuysOpen') : ''));
 
-  // Inköp / Husbidrag-rutan
+  // Buy-in / House contribution box
   setText('buyInVal', d.buyIn != null ? fmtMoney(d.buyIn) : '—', true);
   const houseRow = el('houseContribRow');
   if (d.houseContrib && d.houseContrib > 0) {
@@ -691,7 +651,7 @@ function render(rawData) {
 
   if (d.tournamentName) document.title = d.tournamentName + ' — Live';
 
-  // Betalda platser & bust till pengar — dölj under förstart
+  // Paid places & busts to money — hidden during pre-start
   const bar = el('moneyInfoBar');
   if (!isBefore && (d.inTheMoney || d.bustsUntilMoney != null)) {
     bar.style.display = 'grid';
@@ -708,7 +668,7 @@ function render(rawData) {
     bar.style.display = 'none';
   }
 
-  // Turneringstitel + beskrivning + speltyp
+  // Tournament title + description + game type
   const titleBlock = el('tourneyTitleBlock');
   const hasTitle = d.tournamentName || d.description;
   if (hasTitle) {
@@ -730,16 +690,16 @@ function render(rawData) {
   }
 }
 
-// ── LOKAL NEDRÄKNING ─────────────────────────────────────────────────────
-// Klockan tickar lokalt varje sekund och synkas mot TD:s värde vid uppdatering.
+// ── LOCAL COUNTDOWN ─────────────────────────────────────────────────────
+// The clock ticks locally every second and syncs with the TD's value on each update.
 let localClock = null;      // { secsLeft, paused, levelDuration, bigBlind }
 let clockHandle = null;
-let lastSyncTime = null;    // när senaste TD-sync skedde
+let lastSyncTime = null;    // when the last TD sync happened
 
 function startLocalClock() {
   if (clockHandle) clearInterval(clockHandle);
   clockHandle = setInterval(() => {
-    if (!localClock || localClock.paused) return;  // tickar även under paus
+    if (!localClock || localClock.paused) return;  // still ticks during pause
     localClock.secsLeft = Math.max(0, localClock.secsLeft - 1);
     updateClockDisplay();
   }, 1000);
@@ -790,29 +750,16 @@ async function init() {
     if (s.warnThreshold)       settings.warnThreshold       = s.warnThreshold;
     if (s.critThreshold)       settings.critThreshold       = s.critThreshold;
     if (s.pollIntervalSeconds) settings.pollIntervalSeconds = s.pollIntervalSeconds;
-    if (s.defaultLang)         currentLang                  = s.defaultLang;
-    // Load all available languages listed in settings
-    const langs = s.availableLanguages || ['sv', 'en'];
-    await Promise.all(langs.map(async lang => {
-      try {
-        const t = await fetch('locales/' + lang + '.json?v=' + Date.now()).then(r => r.json());
-        LANG[lang] = t;
-      } catch(e) { console.warn('Could not load locale:', lang); }
-    }));
+    // Load the English locale
+    const t = await fetch('locales/en.json?v=' + Date.now()).then(r => r.json());
+    LANG.en = t;
   } catch(e) {
     console.warn('Could not load settings.json, using defaults.');
     // Fallback: inline defaults so the page still works
-    LANG.sv = {"waiting":"Väntar","prestart":"Förstart","finished":"Avslutat","paused":"Pausad","live":"Live","currentLevel":"Aktuell nivå","timeLeft":"tid kvar","pausedLbl":"⏸ Pausad","breakLbl":"☕ Paus","logoTitle":"Turnering Live","nextLbl":"Nästa:","smallBlind":"Liten blind","bigBlind":"Stor blind","ante":"Ante","players":"Spelare kvar","of":"av","entered":"anmälda","prizePool":"Prispott","buyin":"Insats:","rebuys":"Rebuys / Add-ons","total":"totalt","open":"öppna","rebuysOpen":"rebuys öppna","house":"Inköp","buyin2":"Inköp:","houseRow":"husbidrag","fromHouse":"från huset","purchased":"Antal inköpta","chipsInPlay":"Marker i spel","nowPlaying":"Nu spelas","avgStack":"Snittstack","totalChips":"Marker i spel","tables":"bord","paidPlaces":"betalda platser","bustsTill":"bust till $","inTheMoney":"🏆 i pengarna!","break":"Paus","level":"Nivå"};
     LANG.en = {"waiting":"Waiting","prestart":"Pre-game","finished":"Finished","paused":"Paused","live":"Live","currentLevel":"Current level","timeLeft":"time left","pausedLbl":"⏸ Paused","breakLbl":"☕ Break","logoTitle":"Tournament Live","nextLbl":"Next:","smallBlind":"Small blind","bigBlind":"Big blind","ante":"Ante","players":"Players left","of":"of","entered":"entered","prizePool":"Prize pool","buyin":"Buy-in:","rebuys":"Rebuys / Add-ons","total":"total","open":"open","rebuysOpen":"rebuys open","house":"Buy-in","buyin2":"Buy-in:","houseRow":"house adds","fromHouse":"from the house","purchased":"Buy-ins sold","chipsInPlay":"Chips in play","nowPlaying":"Game","avgStack":"Avg stack","totalChips":"Chips in play","tables":"tables","paidPlaces":"paid places","bustsTill":"busts to $","inTheMoney":"🏆 in the money!","break":"Break","level":"Level"};
   }
 
-  // Override lang from localStorage if user has previously chosen
-  try { const l = localStorage.getItem('td_lang'); if (l && LANG[l]) currentLang = l; } catch(e) {}
-
   applyStaticLabels();
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  const activeBtn = document.getElementById('lang-' + currentLang);
-  if (activeBtn) activeBtn.classList.add('active');
   startLocalClock();
   if (location.protocol !== 'file:') {
     startPolling('/td-receiver', settings.pollIntervalSeconds || 90);
